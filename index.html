@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phoenix King</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="auth-overlay" class="auth-overlay">
+    <div id="screen-set" class="auth-card">
+        <div class="fire-icon">🔥</div>
+        <h2>The Phoenix King</h2>
+        <p>Create your password to protect your dashboard.</p>
+        <input type="password" id="set-pw" placeholder="Choose a password" autocomplete="new-password">
+        <input type="password" id="set-pw-confirm" placeholder="Confirm password" autocomplete="new-password" onkeydown="if(event.key==='Enter') setPassword()">
+        <button class="auth-btn" onclick="setPassword()">Begin Your Reign</button>
+        <p class="auth-error" id="set-error"></p>
+    </div>
+    <div id="screen-login" class="auth-card" style="display:none">
+        <div class="fire-icon">🔥</div>
+        <h2>The Phoenix King</h2>
+        <p>Enter your password to continue.</p>
+        <input type="password" id="login-pw" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter') login()">
+        <button class="auth-btn" onclick="login()">Enter</button>
+        <p class="auth-error" id="login-error"></p>
+    </div>
+</div>
+
+<div id="app" class="app" style="display:none">
+    <header class="header">
+        <div>
+            <h1 class="app-title">🔥 The Phoenix King</h1>
+            <div id="current-date" class="header-date"></div>
+        </div>
+        <div class="header-right">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring-svg">
+                    <path class="ring-track" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-progress" id="ring-progress" stroke-dasharray="0,100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-label" id="ring-label">0%</span>
+            </div>
+            <button class="logout-btn" onclick="logout()">Log Out</button>
+        </div>
+    </header>
+
+    <div class="top-cards">
+        <div class="win-card">
+            <div class="win-label">⚡ Win of the Day</div>
+            <input type="text" id="win-input" class="win-input" placeholder="What was your biggest win today?" onblur="saveWin()">
+        </div>
+        <div class="quote-card" id="quote-card"></div>
+    </div>
+
+    <div class="sections" id="sections"></div>
+
+    <div class="bottom-cards">
+        <div class="week-card">
+            <h3>📅 This Week</h3>
+            <div id="weekly-grid" class="weekly-grid"></div>
+        </div>
+        <div class="history-card">
+            <h3>📊 Last 30 Days</h3>
+            <div id="history-grid" class="history-grid"></div>
+            <div class="history-legend">
+                <span class="legend-dot" style="background:#1a1a1a"></span> 0%
+                <span class="legend-dot" style="background:#7f1d1d"></span> 1–39%
+                <span class="legend-dot" style="background:#92400e"></span> 40–69%
+                <span class="legend-dot" style="background:#065f46"></span> 70–89%
+                <span class="legend-dot" style="background:#16a34a"></span> 90–100%
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

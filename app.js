@@ -78,7 +78,7 @@ const QUOTES = [
 ];
 
 const JSONBIN_BIN_ID  = '6a2ed888da38895dfebf61f5';
-const JSONBIN_API_KEY = 'YOUR_API_KEY_HERE';
+const JSONBIN_API_KEY = '$2a$10$f4VXQRC9w/7slqzM33xbHuCBuYX.9HDxFMgZ4g7dkQ3U9oStRiTr6';
 
 let today = new Date().toISOString().split('T')[0];
 
